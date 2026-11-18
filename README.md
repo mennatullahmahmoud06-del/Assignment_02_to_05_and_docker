@@ -63,9 +63,3 @@ dotnet run                                    # applies them automatically
 **Admin:** login with `admin@questarena.local` / `Admin#12345` (seeded from `appsettings.json`) to create, edit or delete hero classes and quests.
 Change these values and the JWT key before using anything outside of development.
 
-## Things worth showing in the demo
-- Delete a hero, then `GET /api/Heroes/{id}` returns 404 but the row is still in SQL with `IsDeleted = 1` (soft delete interceptor).
-- Check `CreatedAt` / `ModifiedAt` in the database after creating and updating (interceptors).
-- Look at the response headers: `X-Request-Id` (middleware). Call the API more than the limit and you get `429`.
-- The console shows the request timing (middleware) and the action logging / timing (filters).
-- Call a quest endpoint without a token: `401`. Try to edit another player's hero: `403`. Try to create a quest as a player: `403`.
