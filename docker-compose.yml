@@ -1,0 +1,35 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: questarena_db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      MSSQL_SA_PASSWORD: "${SQL_SA_PASSWORD:-YourStrong!Passw0rd}"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+  api:
+    build:
+      context: .
+      dockerfile: Assignment/Dockerfile
+    container_name: questarena_api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultSqlConnection: "Server=db;Database=QuestArenaDb;User Id=sa;Password=${SQL_SA_PASSWORD:-YourStrong!Passw0rd};TrustServerCertificate=True;"
+      ConnectionStrings__AuthenticationConnection: "Server=db;Database=QuestArenaAuth;User Id=sa;Password=${SQL_SA_PASSWORD:-YourStrong!Passw0rd};TrustServerCertificate=True;"
+      Jwt__Key: "${JWT_KEY:-dev-only-secret-key-change-me-in-production-0123456789}"
+    ports:
+      - "8080:8080"
+
+volumes:
+  mssql_data:

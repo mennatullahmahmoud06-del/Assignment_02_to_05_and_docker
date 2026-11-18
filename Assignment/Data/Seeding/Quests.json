@@ -1,0 +1,8 @@
+[
+  { "title": "Rats in the Cellar", "description": "Clear the tavern cellar.", "requiredLevel": 1, "difficulty": 1, "rewardXp": 60, "rewardGold": 10 },
+  { "title": "Goblin Camp", "description": "Raid the goblin camp near the road.", "requiredLevel": 1, "difficulty": 2, "rewardXp": 90, "rewardGold": 25 },
+  { "title": "The Haunted Bridge", "description": "Free the bridge from the restless ghost.", "requiredLevel": 2, "difficulty": 3, "rewardXp": 150, "rewardGold": 40 },
+  { "title": "Wolf Pack", "description": "Hunt the wolves that scare the village.", "requiredLevel": 2, "difficulty": 3, "rewardXp": 170, "rewardGold": 45 },
+  { "title": "Ogre's Cave", "description": "Enter the cave and face the ogre.", "requiredLevel": 3, "difficulty": 5, "rewardXp": 300, "rewardGold": 100 },
+  { "title": "Dragon's Lair", "description": "The final challenge.", "requiredLevel": 5, "difficulty": 8, "rewardXp": 800, "rewardGold": 500 }
+]

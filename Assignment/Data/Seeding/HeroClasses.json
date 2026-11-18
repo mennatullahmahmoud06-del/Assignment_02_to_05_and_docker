@@ -1,0 +1,5 @@
+[
+  { "name": "Warrior", "description": "Strong and sturdy. Best odds against tough quests.", "bonusPower": 10 },
+  { "name": "Archer", "description": "Fast and precise. Balanced fighter.", "bonusPower": 7 },
+  { "name": "Mage", "description": "Fragile but powerful. Needs to level up to shine.", "bonusPower": 4 }
+]
