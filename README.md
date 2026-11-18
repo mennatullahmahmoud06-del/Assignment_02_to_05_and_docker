@@ -1,4 +1,4 @@
-# Assignment - Quest Arena (one project, every session)
+# Assignment - Quest Arena 
 
 A small **turn-based RPG Web API**. A player registers, creates up to 3 heroes (Warrior / Archer / Mage),
 sends them on quests, and the dice decide the result. Winning gives XP and gold, and heroes level up.
